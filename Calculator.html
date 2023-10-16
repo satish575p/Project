@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body {
+    background-color: grey;
+    text-align: center;
+}
+
+.box {
+    border: 0.5px solid black;
+    height: 250px;
+    width: 240px;
+    margin-top: 45px;
+    margin-left: 600px;
+}
+
+.inputb {
+    
+    width: 180px;
+    height: 50px;
+}
+
+input {
+    width: 173.5px;
+    height: 46px;
+}
+
+.acb {
+    background-color: lightseagreen;
+    width: 60px;
+    height: 50px;
+    margin-left: 180px;
+    margin-top: -50px;
+}
+
+.numb {
+    background-color: black;
+    width: 180px;
+    height: 200px;
+}
+
+.opb {
+    background-color: grey;
+    width: 60px;
+    height: 200px;
+    margin-top: -200px;
+    margin-left: 180px;
+}
+
+button {
+    border: none;
+    width: 57px;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+}
+        </style>
+    </head>
+    <body>
+        
+        <div>
+            <div class="box">
+                <div class="inputb">
+                    <input type="text" id="display">
+                </div>
+                <div class="acb">
+                    <button onclick="clearDisplay()">AC</button>
+                </div>
+                <div class="numb">
+                    <button onclick="appendToDisplay('9')">9</button>
+                    <button onclick="appendToDisplay('8')">8</button>
+                    <button onclick="appendToDisplay('7')">7</button>
+                    <button onclick="appendToDisplay('4')">4</button>
+                    <button onclick="appendToDisplay('5')">5</button>
+                    <button onclick="appendToDisplay('6')">6</button>
+                    <button onclick="appendToDisplay('1')">1</button>
+                    <button onclick="appendToDisplay('2')">2</button>
+                    <button onclick="appendToDisplay('3')">3</button>
+                    <button onclick="appendToDisplay('.')">.</button>
+                    <button onclick="appendToDisplay('0')">0</button>
+                    <button onclick="calculateResult()">=</button>
+                </div>
+                
+                <div class="opb">
+                    <button onclick="performOperation('+')">+</button>
+                    <button onclick="performOperation('-')">-</button>
+                    <button onclick="performOperation('/')">÷</button>
+                    <button onclick="performOperation('*')">x</button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        let currentDisplay = '';
+        let currentOperator = '';
+        let firstOperand = '';
+      
+        function appendToDisplay(value) {
+          currentDisplay += value;
+          document.getElementById('display').value = currentDisplay;
+        }
+  
+      function clearDisplay() {
+        currentDisplay = '';
+        currentOperator = '';
+        firstOperand = '';
+        document.getElementById('display').value = '';
+      }
+  
+      function performOperation(operator) {
+        
+        firstOperand = currentDisplay;
+        currentOperator = operator;
+  
+        if(currentOperator !== ''){
+          currentDisplay = '';
+          document.getElementById('display').value = currentDisplay;
+        }
+        
+      }
+  
+      function calculateResult() {
+        if (firstOperand !== '' && currentOperator !== '' && currentDisplay !== '') {
+          firstOperand = parseFloat(firstOperand);
+          currentDisplay = parseFloat(currentDisplay);
+  
+          switch (currentOperator) {
+            case '+':
+              currentDisplay = firstOperand + currentDisplay;
+              break;
+            case '-':
+              currentDisplay = firstOperand - currentDisplay;
+              break;
+            case '*':
+              currentDisplay = firstOperand * currentDisplay;
+              break;
+            case '/':
+              if (currentDisplay !== 0) {
+                currentDisplay = firstOperand / currentDisplay;
+              } else {
+                currentDisplay = 'Error';
+              }
+              break;
+          }
+  
+          currentOperator = '';
+          firstOperand = '';
+          document.getElementById('display').value = currentDisplay;
+        }
+      }
+    </script>
+</html>

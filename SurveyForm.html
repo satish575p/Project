@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Customer Survey Form</title>
+        <style>
+            #one
+            {
+                
+                margin-left: 300px;
+                width: 800px;
+                height: 650px;
+                background-color: cyan;
+            }
+            #one>h1
+            {
+                color: white;
+            }
+            #one>p>span
+            {
+                color: blue;
+            }
+            #one>p
+            {
+                margin-left: 100px;
+            }
+            #two
+            {
+                width: 600px;
+                height: 500px;
+                margin-left: 100px;
+                background-color: white;
+            }
+            #tab
+            {
+                display: flex;
+                justify-content: space-between;
+            }
+            #footer
+            {
+                color: white;
+            }
+            #button
+            {
+                background-color: cyan;
+            }
+            #two>table,p,textarea,#button
+            {
+                margin-left: 40px;
+            }
+            #two>span
+            {
+                margin-left: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+        <div id="one">
+            <h1 align="center">Customer Survey Form</h1>
+
+            <div id="two"><BR><br>
+                <table id="tab">
+                    <tr>
+                        <td>Name</td>
+                        <td>Email</td>
+                    </tr>
+                   <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                   </tr>
+                </table>
+                <p>Is this first time You are using our products & service?</p>
+                <span><input type="radio">Yes</span>
+                <span><input type="radio">No</span>
+                <p>Would you suggest to your friends and colleague?</p>
+                <span><input type="radio">Yes</span>
+                <span><input type="radio">No</span>
+                <p>How satisfied are you with our company overall?</p>
+                <span><input type="radio">Satisfied</span>
+                <span><input type="radio">Undecided</span>
+                <span><input type="radio">Unsatisfied</span>
+                <p>Do you have suggestions to improve our service?</p>
+                <textarea rows="4" cols="70"></textarea><br><BR>
+                <input id="button" type="submit">
+            </div>
+            <p id="footer">&copy 2018 Customer Survey Form. All Rights Reserved | Design by <span>W3Layouts</span> </p>
+        </div>
+        </form>
+    </body>
+</html>
